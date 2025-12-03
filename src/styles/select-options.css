@@ -1,0 +1,45 @@
+#selec-table, ::picker(select) {
+  appearance: base-select;
+}
+#selec-table {
+  & option {
+    background-color: var(--color-neutral-900);
+    color: var(--color-gray-200);
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--color-neutral-800);
+    }
+  }
+
+  & option:disabled {
+    background-color: transparent;
+    color: var(--color-gray-500);
+    cursor: not-allowed;
+  }
+
+  &::picker-icon {
+    display: none; /* Hide the default picker icon */
+  }
+}
+::picker(select) {
+  background-color: var(--color-neutral-950);
+  color: var(--color-gray-200);
+  border: none;
+  padding: 0.35rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--color-border-select);
+  /* box-shadow: var(--shadow-inputs); */
+  margin-top: .3rem;
+}
+
+/* si se ha seleccionado una option diferente a modo (value vacío) */
+#select-wrapper:has(select option[value=""]:not(:checked)) {
+  select {
+    border-color: var(--color-violet-600);
+    box-shadow: var(--shadow-inputs);
+  }
+}
